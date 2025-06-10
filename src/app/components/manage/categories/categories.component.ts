@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CategoryService } from '../../../services/category.service';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -16,7 +17,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterLink
   ],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.scss',
@@ -63,5 +65,13 @@ export class CategoriesComponent implements OnInit, AfterViewInit {
       },
       error:(err)=>{}
     })
+  }
+
+  onUpdateCategory(id:string){
+    
+  }
+
+  onDeleteCategory(id:string){
+    console.log(id);
   }
 }

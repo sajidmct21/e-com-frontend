@@ -7,7 +7,7 @@ export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'admin/categories', component: CategoriesComponent },
   { path: 'admin/categories/add', component: CategoryFormComponent },
-  { path: 'admin/categories/:id', component: CategoryFormComponent },
+  { path: 'admin/categories/edit/:id', component: CategoryFormComponent },
 
 
 ];
