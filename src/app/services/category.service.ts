@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Apiresponse } from '../interfaces/apiresponse.interface';
 import { Category } from '../interfaces/category.interface';
+import { environment } from '../../environments/environment.development';
 
 
 @Injectable({
@@ -14,23 +15,23 @@ export class CategoryService {
 
   httpCreateCategory(dataModel:Category){
     // console.log(name);
-    return this.http.post('http://localhost:3000/api/category/createCategory',dataModel)
+    return this.http.post(`${environment.apiUrl}/api/category/createCategory`,dataModel)
   }
 
   httpGetAllCategories():Observable<Apiresponse<Category[]>> {
-    return this.http.get<Apiresponse<Category[]>>('http://localhost:3000/api/category/getAllCategories');
+    return this.http.get<Apiresponse<Category[]>>(`${environment.apiUrl}/api/category/getAllCategories`);
   }
 
   httpGetCategoryById(id:string):Observable<Apiresponse<Category>>{
-    return this.http.get<Apiresponse<Category>>(`http://localhost:3000/api/category/getCategoryById/${id}`)
+    return this.http.get<Apiresponse<Category>>(`${environment.apiUrl}/api/category/getCategoryById/${id}`)
   }
 
    httpUpdateCategory(id:string,dataModel:Category){
-    return this.http.put(`http://localhost:3000/api/category/updateCategory/${id}`, dataModel)
+    return this.http.put(`${environment.apiUrl}/api/category/updateCategory/${id}`, dataModel)
   }
 
    httpDeleteCategory(id:string){
-    return this.http.delete(`http://localhost:3000/api/category/deleteCategory/${id}`)
+    return this.http.delete(`${environment.apiUrl}/api/category/deleteCategory/${id}`)
   }
 
 }
