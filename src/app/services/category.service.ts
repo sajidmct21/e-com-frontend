@@ -29,4 +29,8 @@ export class CategoryService {
     return this.http.put(`http://localhost:3000/api/category/updateCategory/${id}`, dataModel)
   }
 
+   httpDeleteCategory(id:string){
+    return this.http.delete(`http://localhost:3000/api/category/deleteCategory/${id}`)
+  }
+
 }

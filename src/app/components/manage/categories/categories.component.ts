@@ -72,6 +72,15 @@ export class CategoriesComponent implements OnInit, AfterViewInit {
   }
 
   onDeleteCategory(id:string){
-    console.log(id);
+    this.catService.httpDeleteCategory(id).subscribe({
+      next:()=>{
+        alert(`Category is deleted`)
+        this.onGetAllCategories()
+        
+      },
+      error:(err)=>{
+        console.log(`${err}`);
+      }
+    })
   }
 }
